@@ -1,0 +1,664 @@
+<!--¯\_(ツ)_/¯-->
+<!--The power of technology-->
+<!DOCTYPE HTML>
+<html>
+
+    <head>
+        <title>Interface Proposal Team 5</title>
+        <div class="jumbotron jumbotron-fluid">
+            <div class="d-flex justify-content-center">
+                <h1 class="jumbo"><strong>UNFinished Business</strong></h1>
+            </div>
+            <div class="d-flex justify-content-center">
+                <h2 class="jumbo"><strong>Application for Employment</strong></h2>
+            </div>
+        </div>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"></script>
+        <script src="script.js"></script>
+    </head>
+
+    <body onload="currentDate()">
+        <div class="container" width>
+            <!--Accordion class for all form fields-->
+
+            <div class="accordion" id="applicationAccordion">
+                <!--Card for Applicant Information-->
+                <div class="card">
+                    <div class="card-header" id="applicantHeading" ;>
+                        <h5 class="mb-0">
+                            <button style="color: #303C6C;" class="btn btn-link" type="button" data-toggle="collapse" data-target="#applicantCollapse" aria-expanded="false" aria-controls="applicantCollapse">
+                            <strong>Applicant Information</strong>
+                            </button>
+                        </h5>
+                    </div>
+
+                    <div class="collapse show" id="applicantCollapse" data-parent="#applicationAccordion">
+                        <div class="card-body">
+                            <p>Fields with the "*" symbol are required</p>
+                            <form id="applicantForm" action="#" onsubmit="applicantFormFunc();return false">
+                                <div class="form-group">
+                                    <label for="fname">First Name*</label>
+                                    <input class="form-control" id="fname" placeholder="Please Enter Your First Name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="mname">Middle Name</label>
+                                    <input class="form-control" id="mname" placeholder="Please Enter Your Middle Name (if applicable)">
+                                </div>
+                                <div class="form-group">
+                                    <label for="lname">Last Name*</label>
+                                    <input class="form-control" id="lname" placeholder="Please Enter Your Last Name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="address">Address*</label>
+                                    <input class="form-control" id="address" placeholder="1234 Main St" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="city">City*</label>
+                                    <input class="form-control" id="city" placeholder="Please Enter The City That You Currently Live In" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="state">State*</label>
+                                    <select id="state" class="form-control" required>
+                                        <option selected>Please Choose the State You Currently Live In</option>
+                                        <option value="AL">Alabama</option>
+                                        <option value="AK">Alaska</option>
+                                        <option value="AZ">Arizona</option>
+                                        <option value="AR">Arkansas</option>
+                                        <option value="CA">California</option>
+                                        <option value="CO">Colorado</option>
+                                        <option value="CT">Connecticut</option>
+                                        <option value="DE">Delaware</option>
+                                        <option value="DC">District Of Columbia</option>
+                                        <option value="FL">Florida</option>
+                                        <option value="GA">Georgia</option>
+                                        <option value="HI">Hawaii</option>
+                                        <option value="ID">Idaho</option>
+                                        <option value="IL">Illinois</option>
+                                        <option value="IN">Indiana</option>
+                                        <option value="IA">Iowa</option>
+                                        <option value="KS">Kansas</option>
+                                        <option value="KY">Kentucky</option>
+                                        <option value="LA">Louisiana</option>
+                                        <option value="ME">Maine</option>
+                                        <option value="MD">Maryland</option>
+                                        <option value="MA">Massachusetts</option>
+                                        <option value="MI">Michigan</option>
+                                        <option value="MN">Minnesota</option>
+                                        <option value="MS">Mississippi</option>
+                                        <option value="MO">Missouri</option>
+                                        <option value="MT">Montana</option>
+                                        <option value="NE">Nebraska</option>
+                                        <option value="NV">Nevada</option>
+                                        <option value="NH">New Hampshire</option>
+                                        <option value="NJ">New Jersey</option>
+                                        <option value="NM">New Mexico</option>
+                                        <option value="NY">New York</option>
+                                        <option value="NC">North Carolina</option>
+                                        <option value="ND">North Dakota</option>
+                                        <option value="OH">Ohio</option>
+                                        <option value="OK">Oklahoma</option>
+                                        <option value="OR">Oregon</option>
+                                        <option value="PA">Pennsylvania</option>
+                                        <option value="RI">Rhode Island</option>
+                                        <option value="SC">South Carolina</option>
+                                        <option value="SD">South Dakota</option>
+                                        <option value="TN">Tennessee</option>
+                                        <option value="TX">Texas</option>
+                                        <option value="UT">Utah</option>
+                                        <option value="VT">Vermont</option>
+                                        <option value="VA">Virginia</option>
+                                        <option value="WA">Washington</option>
+                                        <option value="WV">West Virginia</option>
+                                        <option value="WI">Wisconsin</option>
+                                        <option value="WY">Wyoming</option>
+                                    </select>	
+                                </div>
+                                <div class="form-group">
+                                    <label for="zip">ZIP Code*</label>
+                                    <input class="form-control" id="zip" pattern="[0-9]{5}" placeholder="Please Enter Your Current ZIP Code (12345)" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="ssn">Social Security Number* Proper Format: 123-45-6789</label>
+                                    <input class="form-control" onblur="formatSSN()" id="ssn" pattern="[0-9]{3}-[0-9]{2}-[0-9]{4}" placeholder="Please Enter Your Social Security Number" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="mobile">Mobile Phone Number* Proper Format: (123)-456-7890</label>
+                                    <input type="tel" class="form-control" onblur="formatPhoneNumber('mobile')" id="mobile" placeholder="Please enter your mobile phone number" pattern="\([0-9]{3}\)-[0-9]{3}-[0-9]{4}" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="telephone">Telephone Number Proper Format: (123)-456-7890</label>
+                                    <input type="tel" class="form-control" onblur="formatPhoneNumber('telephone')" id="telephone" placeholder="Please enter your telephone number (optional)" pattern="\([0-9]{3}\)-[0-9]{3}-[0-9]{4}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email Address*</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Please Enter An Email Address That We Can Contact You With" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="position">Desired Position*</label>
+                                    <input class="form-control" id="position" placeholder="Please enter the position within UNFinished Business that you are applying for" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="salary">Desired Salary*</label>
+                                    <input type="number" class="form-control" id="salary" min="0" placeholder="Please Enter The Salary You Are Currently Seeking" required>
+                                </div>
+                                <p>Have you ever been convicted of a crime?*</p>
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input" id="crimeType1" name="crimeQuestion" required>
+                                    <label class="form-check-label" for="crimeType1">Yes</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input" id="crimeType2" name="crimeQuestion">
+                                    <label class="form-check-label" for="crimeType2">No</label>
+                                </div><br>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="ageCheck" required>
+                                    <label class="form-check-label" for="ageCheck" aria-describedby="checkAge">By checking this box, you confirm that you are at least 18 years old</label>
+                                    <small id="checkAge" class="form-text text-muted">All UNFinished Business Employees must be 18 years old or over</small>
+                                  </div><br>
+                                  <button id="submitApplicant" class="btn btn-primary">Next</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Card for Emergency Contact-->
+                <div class="card">
+                    <div class="card-header" id="emergencyHeading">
+                        <h5 class="mb-0">
+                            <button style="color: #303C6C;" id="emergencyButton" class="btn btn-link" type="button" data-toggle="collapse" data-target="#emergencyCollapse" aria-expanded="false" aria-controls="emergencyCollapse">
+                                <strong>Emergency Contact Information</strong>
+                            </button>
+                        </h5>
+                    </div>
+                    <div class="container collapse" id="emergencyCollapse" data-parent="#applicationAccordion">
+                        <div class="card-body">
+                            <p>Person to be notified in case of emergency</p>
+                            <form id="emergencyForm" action="#" onsubmit="emergencyFormFunc();return false">
+                            <div id="contactGroup">
+                                <div class="form-group">
+                                    <label for="contactfName">First Name*</label>
+                                    <input class="form-control" id="contactfName" placeholder="Please Enter Your Emergency Contact's First Name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactmName">Middle Name</label>
+                                    <input class="form-control" id="contactmName" placeholder="Please Enter Your Emergency Contact's Middle Name (if applicable)">
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactlName">Last Name*</label>
+                                    <input class="form-control" id="contactlName" placeholder="Please Enter Your Emergency Contact's Last Name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactAddress">Address*</label>
+                                    <input class="form-control" id="contactAddress" placeholder="1234 Main St" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactCity">City*</label>
+                                    <input class="form-control" id="contactCity" placeholder="Please Enter The City That Your Emergency Contact Currently Lives In" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactState">State*</label>
+                                    <select id="contactState" class="form-control" required>
+                                        <option selected>Please Choose the State Your Emergency Contact Currently Lives In</option>
+                                        <option value="AL">Alabama</option>
+                                        <option value="AK">Alaska</option>
+                                        <option value="AZ">Arizona</option>
+                                        <option value="AR">Arkansas</option>
+                                        <option value="CA">California</option>
+                                        <option value="CO">Colorado</option>
+                                        <option value="CT">Connecticut</option>
+                                        <option value="DE">Delaware</option>
+                                        <option value="DC">District Of Columbia</option>
+                                        <option value="FL">Florida</option>
+                                        <option value="GA">Georgia</option>
+                                        <option value="HI">Hawaii</option>
+                                        <option value="ID">Idaho</option>
+                                        <option value="IL">Illinois</option>
+                                        <option value="IN">Indiana</option>
+                                        <option value="IA">Iowa</option>
+                                        <option value="KS">Kansas</option>
+                                        <option value="KY">Kentucky</option>
+                                        <option value="LA">Louisiana</option>
+                                        <option value="ME">Maine</option>
+                                        <option value="MD">Maryland</option>
+                                        <option value="MA">Massachusetts</option>
+                                        <option value="MI">Michigan</option>
+                                        <option value="MN">Minnesota</option>
+                                        <option value="MS">Mississippi</option>
+                                        <option value="MO">Missouri</option>
+                                        <option value="MT">Montana</option>
+                                        <option value="NE">Nebraska</option>
+                                        <option value="NV">Nevada</option>
+                                        <option value="NH">New Hampshire</option>
+                                        <option value="NJ">New Jersey</option>
+                                        <option value="NM">New Mexico</option>
+                                        <option value="NY">New York</option>
+                                        <option value="NC">North Carolina</option>
+                                        <option value="ND">North Dakota</option>
+                                        <option value="OH">Ohio</option>
+                                        <option value="OK">Oklahoma</option>
+                                        <option value="OR">Oregon</option>
+                                        <option value="PA">Pennsylvania</option>
+                                        <option value="RI">Rhode Island</option>
+                                        <option value="SC">South Carolina</option>
+                                        <option value="SD">South Dakota</option>
+                                        <option value="TN">Tennessee</option>
+                                        <option value="TX">Texas</option>
+                                        <option value="UT">Utah</option>
+                                        <option value="VT">Vermont</option>
+                                        <option value="VA">Virginia</option>
+                                        <option value="WA">Washington</option>
+                                        <option value="WV">West Virginia</option>
+                                        <option value="WI">Wisconsin</option>
+                                        <option value="WY">Wyoming</option>
+                                    </select>	
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactZip">ZIP Code*</label>
+                                    <input class="form-control" id="contactZip" pattern="[0-9]{5}" placeholder="Please Enter Your Emergency Contact's Current ZIP Code (12345)" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactMobile">Mobile Phone Number* Proper Format: (123)-456-7890</label>
+                                    <input type="tel" class="form-control" onblur="formatPhoneNumber('contactMobile')" id="contactMobile" placeholder="Please enter your Emergency Contact's mobile phone number" pattern="\([0-9]{3}\)-[0-9]{3}-[0-9]{4}" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactTelephone">Telephone Number Proper Format: (123)-456-7890</label>
+                                    <input type="tel" class="form-control" onblur="formatPhoneNumber('contactTelephone')" id="contactTelephone" placeholder="Please enter your Emergency Contact's telephone number (optional)" pattern="\([0-9]{3}\)-[0-9]{3}-[0-9]{4}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactEmail">Email Address*</label>
+                                    <input type="email" class="form-control" id="contactEmail" placeholder="Please Enter An Email Address That We Can Contact Your Emergency Contact With" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactRelationship">Relationship*</label>
+                                    <input class="form-control" id="contactRelationship" placeholder="Please Enter Your Relationship to the Emergency Contact (Father, Brother, Friend, etc.)" required>
+                                </div>
+                                <button id="removeContact" class="btn btn-danger">Delete this Emergency Contact</button>
+                            </div>
+                                <div id="newContact"></div>
+                                <button id="addContact" class="btn btn-info">Add Another Emergency Contact</button>
+                                <button id="submitEmergency" class="btn btn-primary">Next</button>
+                            </form>
+                            </div>
+                    </div>
+                </div>
+
+                <!--Card for Employment Information section-->
+                <div class="card">
+                    <div class="card-header" id="availabilityHeading">
+                        <h5 class="mb-0">
+                            <button style="color: #303C6C;" class="btn btn-link" id="availabilityButton" type="button" data-toggle="collapse" data-target="#availabilityCollapse" aria-expanded="false" aria-controls="availabilityCollapse">
+                                <strong>Employee Availability</strong>
+                            </button>
+                        </h5>
+                    </div>
+                    <div class="container collapse" id="availabilityCollapse" data-parent="#applicationAccordion">
+                        <div class="card-body">
+                        <form id="availabilityForm" action="#" onsubmit="availabilityFormFunc();return false">
+                            <p>Employment Type Desired (Choose all that apply)*</p>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="employType1">
+                                    <label class="form-check-label" for="employType1">Full-Time</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="employType2">
+                                    <label class="form-check-label" for="employType2">Part-Time</label>
+                                </div><br>
+                                <p>Preferred Days of the Week to Work (Choose all that apply)*</p>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="employday1">
+                                    <label class="form-check-label" for="employday1">Sunday</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="employday2">
+                                    <label class="form-check-label" for="employday2">Monday</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="employday3">
+                                    <label class="form-check-label" for="employday3">Tuesday</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="employday4">
+                                    <label class="form-check-label" for="employday4">Wednesday</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="employday5">
+                                    <label class="form-check-label" for="employday5">Thursday</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="employday6">
+                                    <label class="form-check-label" for="employday6">Friday</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="employday7">
+                                    <label class="form-check-label" for="employday7">Saturday</label>
+                                </div><br>
+                                <div class="form-group">
+                                    <label for="workHours">Number of Hours You Can Work in a Week*</label>
+                                    <input type="number" class="form-control" id="workHours" min="0" placeholder="Please Enter The Number of Hours You Can Work in a Given Week" required>
+                                </div>
+                                <p>Are you able to work nights?*</p>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="workNights" id="workNightsYes" required>
+                                    <label class="form-check-label" for="workNightsYes">
+                                    Yes, I can work nights
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="workNights" id="workNightsNo">
+                                    <label class="form-check-label" for="workNightsNo">
+                                    No, I cannot work nights
+                                    </label>
+                                </div><br>
+                                <div class="form-group">
+                                    <label for="startDate">Date Available to Start*</label>
+                                    <input type="date" class="form-control" id="startDate" min="2000-01-01" required>
+                                </div>
+                                <button id="submitAvailability" class="btn btn-primary">Next</button>
+                            </form>
+                            </div>
+                    </div>
+                </div>
+
+                <!--Card for Education-->
+                <div class="card">
+                    <!--Card header for Education-->
+                    <div class="card-header" id="eduHeading">
+                        <h5 class="mb-0">
+                            <button style="color: #303C6C;" id="educationButton" class="btn btn-link" type="button" data-toggle="collapse" data-target="#eduCollapse" aria-expanded="false" aria-controls="eduCollapse">
+                                <strong>Education</strong>
+                            </button>
+                        </h5>
+                    </div>
+                
+                    <!--Card body for Education-->
+                    <div class="collapse" id="eduCollapse" aria-labelledby="eduHeading" data-parent="#applicationAccordion">
+                        <div class="card-body">
+                        <form id="eduForm" action="#" onsubmit="eduFormFunc();return false">
+                            <br>
+                            <!--HTML DYNAMIC TEXT FIELD PROVIDED BY Md Obydullah at https://www.mynotepaper.com/add-or-remove-input-fields-dynamically-using-jquery-->
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div id="eduList">
+                                        <div id="eduFormRow">
+                                            <div>
+                                                <label><strong>Education Entry</strong></label>
+                                                <div class="input-group mb-3">
+                                                    <div class="mr-2">
+                                                        <label>Level</label>
+                                                        <select class="form-control">
+                                                            <option>Under Graduate</option>
+                                                            <option>Graduate</option>
+                                                            <option>Post-Graduate</option>
+                                                            <option>Professional</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="mr-2">
+                                                        <label>School Name</label>
+                                                        <input type="text" name="eduName" class="form-control m-input" placeholder="Name of School" autocomplete="off">
+                                                    </div>
+                                                    <div class="mr-2">
+                                                        <label>Degree</label>
+                                                        <input type="text" name="eduDegreeName" class="form-control m-input" placeholder="Degree" autocomplete="off">
+                                                    </div>
+                                                    <div class="mr-2">
+                                                        <label>Graduation</label>
+                                                        <input type="date" class="form-control" id="eduGradDate" min="1920-01-01">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button id="removeEdu" type="button" class="btn btn-danger mb-3" onclick="removeEduRow(this)">Remove</button>
+                                        </div>
+                                    </div>                 
+                                    <button id="newEdu" type="button" class="btn btn-info" onclick="addEducationRow()">Add Education</button>
+                                    <button id="submitEducation" class="btn btn-primary">Next</button>
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Card for Work Experience-->
+                <div class="card">
+                    <!--Card header for Work Experience-->
+                    <div class="card-header" id="workHeading">
+                        <h5 class="mb-0">
+                            <button style="color: #303C6C;" id="workButton" class="btn btn-link" type="button" data-toggle="collapse" data-target="#workCollapse" aria-expanded="false" aria-controls="workCollapse">
+                                <strong>Work Experience</strong>
+                            </button>
+                        </h5>
+                    </div>
+                
+                    <!--Card body for Work Experience-->
+                    <div class="collapse" id="workCollapse" aria-labelledby="workHeading" data-parent="#applicationAccordion">
+                        <div class="card-body">
+                            <form id="workForm" action="#" onsubmit="workFormFunc();return false">
+                            <br>
+                            <!--HTML DYNAMIC TEXT FIELD PROVIDED BY Md Obydullah at https://www.mynotepaper.com/add-or-remove-input-fields-dynamically-using-jquery-->
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div id="workList">
+                                        <div id="workFormRow">
+                                            <div>
+                                                <div class="input-group mb-3">
+                                                    <div class="mr-2">
+                                                        <label><strong>Work Experience Entry</strong></label>
+                                                        <input type="text" name="workName" class="form-control mr-2" placeholder="Name of Company" autocomplete="off">
+                                                    </div>
+                                                    <div class="mr-2">
+                                                        <label>Position</label>
+                                                        <input type="text" name="workPositionName" class="form-control mr-2" placeholder="Position Title" autocomplete="off">
+                                                    </div>
+                                                    <div class="mr-2">
+                                                        <label>Start date</label>
+                                                        <input type="date" class="form-control mr-2" id="workStartDate" min="1920-01-01">
+                                                    </div>
+													<div class="mr-2">
+                                                        <label>End date (If applicable)</label>
+                                                        <input type="date" class="form-control mb-3" id="workEndDate" min="1920-01-01">
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-3 mb-3">
+                                                        <label for="telephone">Phone Number</label>
+                                                        <input type="tel" class="form-control" onblur="formatPhoneNumber('telephone')" id="employerTelephone" placeholder="Ex: (123)-456-7890" pattern="\([0-9]{3}\)-[0-9]{3}-[0-9]{4}">
+                                                    </div>
+                                                    <div>
+                                                        <label>Company Address</label>
+                                                        <input class="form-control mb-1" placeholder="1234 Main St">
+                                                        <input class="form-control mb-1" placeholder="City">
+                                                        <select id="stateList" class="form-control mb-1">
+                                                        </select>
+                                                        <input class="form-control mb-1" placeholder="Zip code">
+                                                    </div>
+                                                </div>
+                                                <label>Additional information</label>
+                                                <input type="text" name="workDescription" class="form-control" placeholder="List duties performed, skills used, etc." autocomplete="off">
+                                            </div>
+                                            <button id="removeWork" type="button" class="btn btn-danger m-2" onclick="removeEduRow(this)">Remove</button>
+                                        </div>
+                                    </div>                 
+                                    <button id="newWork" type="button" class="btn btn-info" onclick="addWorkRow()">Add Work Experience</button>
+                                    <button id="submitWork" class="btn btn-primary">Next</button>
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Card for References-->
+                <div class="card">
+
+                    <!--card header for References-->
+                    <div class="card-header" id="referencesHeading">
+                        <h5 class="mb-0">
+                            <button style="color: #303C6C;" class="btn btn-link" type="button" id="referencesButton" data-toggle="collapse" data-target="#referencesCollapse" aria-expanded="false" aria-controls="referencesCollapse">
+                                <strong>References</strong>
+                            </button>
+                        </h5>
+                    </div>
+
+                    <!--Card body for References-->
+                    <div class="collapse" id="referencesCollapse" aria-labelledby="referencesHeading" data-parent="#applicationAccordion">
+                        <div class="card-body">
+                            <form id="refForm" action="#" onsubmit="refFormFunc();return false">
+                            <!--HTML DYNAMIC TEXT FIELD PROVIDED BY Md Obydullah at https://www.mynotepaper.com/add-or-remove-input-fields-dynamically-using-jquery-->
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div id="refList">
+                                        <div id="refFormRow">
+                                            <br>
+                                            <div>
+                                                <label><strong>Reference Entry</strong></label>
+                                                <div class="input-group mb-3">
+                                                    <div class="mr-2">
+                                                        <label>Name</label>
+                                                        <input type="text" name="refName" class="form-control m-input" placeholder="Billy Joel" autocomplete="off" required>
+                                                    </div>
+                                                    <div class="mr-2">
+                                                        <label for="refMobile">Mobile Phone Number*</label>
+                                                        <input type="tel" class="form-control" onblur="formatPhoneNumber('refMobile')" id="refMobile" placeholder="(123)-456-7890" pattern="\([0-9]{3}\)-[0-9]{3}-[0-9]{4}" required>
+                                                    </div>
+                                                    <div class="mr-2">
+                                                        <label for="contactEmail">Email Address*</label>
+                                                        <input type="email" class="form-control" id="contactEmail" placeholder="Please Enter An Email Address That We Can Contact Your Emergency Contact With" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button id="removeRef" type="button" class="btn btn-danger mb-3" onclick="removeRefRow(this)">Remove</button>
+                                        </div>
+                                    </div>                 
+                                    <button id="newRef" type="button" class="btn btn-info" onclick="addReferencesRow()">Add Reference</button>
+                                    <button id="submitReference" class="btn btn-primary">Next</button>
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Card for Additional skills and experience accordion section-->
+                <div class="card">
+
+                    <!--Card header for additional skills and experience-->
+                    <div class="card-header" id="otherHeading">
+                        <h5 class="mb-0">
+                            <button style="color: #303C6C;" class="btn btn-link" type="button" id="otherButton" data-toggle="collapse" data-target="#otherCollapse" aria-expanded="false" aria-controls="otherCollapse">
+                                <strong>Additional Skills and Experience</strong>
+                            </button>
+                        </h5>
+                    </div>
+
+                    <!--Card body for additional skills and experience-->
+                    <div class="collapse" id="otherCollapse" aria-labelledby="otherHeading" data-parent="#applicationAccordion">
+                        <div class="card-body">
+                            <p class="text-center"><strong>PROVIDE ANY ADDITIONAL SKILLS, EXPERIENCES AND OTHER IMPORTANT INFORMATION THAT SUPPORTS YOUR APPLICATION THAT HAS NOT BEEN LISTED ELSEWHERE IN THIS APPLICATION.</strong></p>
+                            <br>
+                            <form id="otherForm" action="#" onsubmit="otherFormFunc();return false">
+                            <!--HTML DYNAMIC TEXT FIELD PROVIDED BY Md Obydullah at https://www.mynotepaper.com/add-or-remove-input-fields-dynamically-using-jquery-->
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div id="inputFormRow">
+                                        <div class="input-group mb-3">
+                                            <input type="text" name="skill" class="form-control m-input" placeholder="Skill or Experience" autocomplete="off">
+                                            <div class="input-group-append">                
+                                                <button id="removeSkill" type="button" class="btn btn-danger">Remove</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                        
+                                    <div id="newSkill"></div>
+                                    <button id="addSkill" type="button" class="btn btn-info">Add Skill or Experience</button>
+                                    <button id="submitOther" class="btn btn-primary">Next</button>
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Card for waiver-->
+                <div class="card">
+
+                    <!--Card header for waiver-->
+                    <div class="card-header" id="waiverHeading">
+                        <h5 class="mb-0">
+                            <button style="color: #303C6C;" id="waiverButton" class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#waiverCollapse" aria-expanded="false" aria-controls="waiverCollapse">
+                                <strong>Application Acknowledgement Waiver and Submission</strong>
+                            </button>
+                        </h5>
+                    </div>
+
+                    <!--Card body for waiver-->
+                    <div id="waiverCollapse" class="collapse" aria-labelledby="waiverHeading" data-parent="#applicationAccordion">
+                        <div class="card-body">
+                            <hr>
+                            <p class="text-center"><strong>PLEASE READ CAREFULLY AND SIGN</strong></p>
+                            <hr>
+                            <p class="text-center"><strong>APPLICATION ACKNOWLEDGEMENT AND WAIVER</strong></p>
+                            <br>
+                            <p>
+                                I agree with these terms so UNFinished Business may see my application:
+                            </p>
+                            <br>
+                            <p>
+                                This form cannot create a job contract. It also can't change my current job status. Only the President/General Manager can make or change either. The change must be in writing.
+                            </p>
+                            <br>
+                            <p>
+                                I may quit or be fired anytime with no reason or warning.
+                            </p>
+                            <br>
+                            <p>
+                                UNFinished Business may change how they do things at any time, even if it lowers my benefits.
+                            </p>
+                            <br>
+                            <p>
+                                UNFinished Business may look further into everything in this form. They are not liable if they reach out to any person or group I've mentioned there. I may be let go with no warning for any mistakes I've made in this form.
+                            </p>
+                            <br>
+                            <p>
+                                UNFinished Business has a drug and alcohol policy which says workers need to get tested before and after getting hired. I must agree with it to work here. I must continue to pass these tests to keep working here. I may also need to pass job-related physicals.
+                            </p>
+                            <br>
+                            <p>
+                                UNFinished Business may get a consumer report about me. This includes information such as my credit records and the type of person I am. If I ask in writing, UNFinished Business will give me more information about this report, because of the Fair Credit Reporting Act.
+                            </p>
+                            <br>
+                            <p>
+                                If I'm hired, I will work here for 60 days on probation. I may quit or be fired for any reason during or after probation.
+                            </p>
+                            <br>
+                            <form id="waiverForm">
+                            <div class="d-flex justify-content-around">
+                                <div>
+                                    <label><b>APPLICATION SIGNATURE:</b></label>
+                                    <input type="text" class="signature" required>
+                                </div>
+                                <div>
+                                    <label><b>DATE:</b></label>
+                                    <input type="date" class="signature" id="sigDate" required>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="float-right">
+                                <input type="submit" class="btn btn-primary" value="Submit">
+                            </div>
+                            </form>
+                            <br>
+                            <hr>
+                            <p class="text-center" style="font-size: 12px">UNFINISHED BUSINESS IS AN EQUAL EMPLOYMENT OPPORTUNITY EMPLOYER.</p>
+                            <br>
+                            <p class="text-center" style="font-size: 12px">THANK YOU FOR COMPLETING THIS APPLICATION FORM AND FOR YOUR INTEREST IN UNFINISHED BUSINESS.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>

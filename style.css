@@ -1,0 +1,42 @@
+.signature {
+    border: none;
+    border-bottom: 1px solid black;
+    background-color: rgba(245, 245, 245, 0);
+}
+
+h1.jumbo {
+    font-size: 60px;
+}
+
+h2.jumbo {
+    font-size: 42px;
+}
+
+body {
+    background-color: #24305E;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-image: url("images/pexels-jessica-lewis-583847.jpg");
+    background-size: cover;
+}
+
+.jumbotron {
+    background-color: rgba(0, 0, 0, 0);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #24305E;
+    text-shadow:
+    -1px -1px 0 #ffffff,
+    1px -1px 0 #ffffff,
+    -1px 1px 0 #ffffff,
+    1px 1px 0 #ffffff;  
+
+}
+
+.card {
+    background-color: rgba(245, 245, 245, 0.95);
+}
+
+.card-header {
+    opacity: .8;
+    text-align: center;
+    background-color:  rgba(245,245,245, 0.80);
+}
